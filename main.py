@@ -17,9 +17,9 @@ minDiff = 3000
 minSquareArea = 2000
 vertex = 4
 
-video = cv2.VideoCapture(0)
-
 sign.readRefImages()
+
+video = cv2.VideoCapture(1)
 
 print ("Please use the Road Sign to play this demo.")
 print ("Please press q to exit")
@@ -27,11 +27,17 @@ print ("Please press q to exit")
 while True:
         #Load the video frame from camera and convert the frame to gray color
         ret, OriginalFrame = video.read()
+        
         gray = cv2.cvtColor(OriginalFrame, cv2.COLOR_BGR2GRAY)
+        #cv2.imshow("Original Frame", OriginalFrame)
+        #cv2.imshow("Gray Frame", gray)
+        
         blurred = cv2.GaussianBlur(gray,(3,3),0)
+        #cv2.imshow("Blurred Frame", blurred)
         
         # Detecting Edges
         edges = sign.auto_canny(blurred)
+        #cv2.imshow("Edges Frame", edges)
 
         # Contour Detection & checking for squares based on the square area
         contours, hierarchy = cv2.findContours(edges,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
