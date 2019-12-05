@@ -1,7 +1,7 @@
 # ======================================================= #
 # Author: VTC STEM Centre/ Gary Lam
-# Date: 27/7/2018
-# Program Name: RoadSign Game version 1.2
+# Date: 5/12/2019
+# Program Name: RoadSign Game version 1.3
 # Description: Program code for sign detection
 # ====================================================== #
 
@@ -51,4 +51,3 @@ while True:
 
 video.release()
 cv2.destroyAllWindows()
-
