@@ -12,7 +12,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 #Reference Images Display name & Original Name
 
-ReferenceImages = ["left.jpg","right.jpg","reverse.jpg", "start.jpg", "stop.jpg", "magic.jpg"]
+ReferenceImages = ["left.jpg","right.jpg","back.jpg", "start.jpg", "stop.jpg", "magic.jpg"]
 ReferenceTitles = ["Left", "Right", "Back", "Start", "Stop", "VTC STEM"]
 
 #define class for References Images
@@ -65,8 +65,8 @@ def four_point_transform(image, pts):
         # individually
         rect = order_points(pts)
 
-        maxWidth = w/2
-        maxHeight = h/2
+        maxWidth = int(w/2)
+        maxHeight = int(h/2)
 
         # construct our destination points which will be used to # map the screen to a top-down, "birds eye" view
         dst = np.float32([[0, 0], [maxWidth - 1, 0], [maxWidth - 1, maxHeight - 1], [0, maxHeight - 1]])
