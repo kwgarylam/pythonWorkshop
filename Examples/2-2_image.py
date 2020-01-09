@@ -8,7 +8,9 @@ img = cv2.imread('image.jpg')
 img_gray = cv2.imread('image.jpg', cv2.IMREAD_GRAYSCALE)
 
 # 顯示圖片
-cv2.imshow('My Image', img)
+cv2.imshow('My Image', img_gray)
+
+cv2.imwrite('output.jpg', img_gray)
 
 # 按下任意鍵則關閉所有視窗
 cv2.waitKey(0)

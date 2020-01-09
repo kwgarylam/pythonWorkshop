@@ -1,0 +1,9 @@
+https://www.pyimagesearch.com/2015/11/02/watershed-opencv/
+https://codeloop.org/python-opencv-circle-detection-with-houghcircles/
+https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
+
+https://www.pyimagesearch.com/2016/02/15/determining-object-color-with-opencv/
+
+cells:
+https://botforge.wordpress.com/2016/08/16/using-the-watershed-algorithm-for-cell-based-segmentation-from-blood-smears/
+https://stackoverflow.com/questions/19736361/contour-completion-in-image-segmentation
