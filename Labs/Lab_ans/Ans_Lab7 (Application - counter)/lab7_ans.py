@@ -1,20 +1,7 @@
-##
-# cv2.HoughCircles(image, method, dp, minDist)
-
-# image: 8-bit, single channel image. If working with a color image, convert to grayscale first.
-# method: Defines the method to detect circles in images. Currently, the only implemented method is cv2.HOUGH_GRADIENT, which corresponds to the Yuen et al. paper.
-# dp: This parameter is the inverse ratio of the accumulator resolution to the image resolution (see Yuen et al. for more details). Essentially, the larger the dp gets, the smaller the accumulator array gets.
-# minDist: Minimum distance between the center (x, y) coordinates of detected circles. If the minDist is too small, multiple circles in the same neighborhood as the original may be (falsely) detected. If the minDist is too large, then some circles may not be detected at all.
-# param1: Gradient value used to handle edge detection in the Yuen et al. method.
-# param2: Accumulator threshold value for the cv2.HOUGH_GRADIENT method. The smaller the threshold is, the more circles will be detected (including false circles). The larger the threshold is, the more circles will potentially be returned.
-# minRadius: Minimum size of the radius (in pixels).
-# maxRadius: Maximum size of the radius (in pixels).
-##
-
 import cv2
 import numpy as np
 
-img	= cv2.imread('planets.jpg')
+img = cv2.imread('coins.jpg')
 img_original = img.copy()
 
 # cv2.HoughCircles function requires an 8-bit, single channel image,
@@ -22,8 +9,11 @@ img_original = img.copy()
 gray_img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 blur_img = cv2.medianBlur(gray_img,9)
 
+#
 # detect circles in the image
-circles	= cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,1.0,65,param1=95,param2=30,minRadius=10,maxRadius=100)
+circles= cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,1.0,65,param1=90,param2=30,minRadius=20,maxRadius=120)
+
+
 # convert the (x, y) coordinates and radius of the circles to integers
 circles = np.round(circles[0, :]).astype("int")
 
@@ -42,3 +32,16 @@ cv2.imshow("HoughCirlces", np.hstack([img_original, img]))
 
 cv2.waitKey()
 cv2.destroyAllWindows()
+
+##
+# cv2.HoughCircles(image, method, dp, minDist)
+
+# image: 8-bit, single channel image. If working with a color image, convert to grayscale first.
+# method: Defines the method to detect circles in images. Currently, the only implemented method is cv2.HOUGH_GRADIENT, which corresponds to the Yuen et al. paper.
+# dp: This parameter is the inverse ratio of the accumulator resolution to the image resolution (see Yuen et al. for more details). Essentially, the larger the dp gets, the smaller the accumulator array gets.
+# minDist: Minimum distance between the center (x, y) coordinates of detected circles. If the minDist is too small, multiple circles in the same neighborhood as the original may be (falsely) detected. If the minDist is too large, then some circles may not be detected at all.
+# param1: Gradient value used to handle edge detection in the Yuen et al. method.
+# param2: Accumulator threshold value for the cv2.HOUGH_GRADIENT method. The smaller the threshold is, the more circles will be detected (including false circles). The larger the threshold is, the more circles will potentially be returned.
+# minRadius: Minimum size of the radius (in pixels).
+# maxRadius: Maximum size of the radius (in pixels).
+##
