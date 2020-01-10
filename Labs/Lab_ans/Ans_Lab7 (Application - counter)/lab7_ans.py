@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('planets.jpg')
+img = cv2.imread('coin.jpg')
 img_original = img.copy()
 
 # cv2.HoughCircles function requires an 8-bit, single channel image,
@@ -10,9 +10,9 @@ gray_img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 blur_img = cv2.medianBlur(gray_img,9)
 
 #
-# Please edit the min/max radius eg. 10,50 / 10,120/ 50,120
+# Please edit the min/max radius eg. 10,50 / 50,120/ 30,150
 # detect circles in the image
-circles= cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,1.0,65,param1=90,param2=30,minRadius=50,maxRadius=120)
+circles= cv2.HoughCircles(blur_img,cv2.HOUGH_GRADIENT,1.0,65,param1=90,param2=30,minRadius=30,maxRadius=280)
 
 
 # convert the (x, y) coordinates and radius of the circles to integers
